@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www/html":{"guestpath":"/var/www/html","hostpath":"/home/stormcore/90daysdevopsbyroxs/docs/semana-01/tarea/devops-d3/template_web","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/stormcore/90daysdevopsbyroxs/docs/semana-01/tarea/devops-d3","disabled":false,"__vagrantfile":true}}}
