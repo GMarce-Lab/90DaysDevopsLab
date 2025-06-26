@@ -1,0 +1,45 @@
+- name: Desplegar servidor web personalizado
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Instalar Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Habilitar Nginx al iniciar
+      systemd:
+        name: nginx
+        enabled: yes
+        state: started
+
+    - name: Copiar landing page personalizada
+      copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
+
+    - name: Crear usuario de acceso SSH
+      user:
+        name: ansibleuser
+        groups: sudo
+        shell: /bin/bash
+        password: "{{ 'MiClaveSegura123' | password_hash('sha512') }}"
+
+    - name: Configurar firewall para permitir SSH y HTTP
+      ufw:
+        rule: allow
+        port: "{{ item }}"
+        proto: tcp
+      loop:
+        - "22"
+        - "80"
+
+    - name: Habilitar UFW
+      ufw:
+        state: enabled
+        policy: allow
