@@ -1,0 +1,65 @@
+=== Iniciando despliegue de Book Library ===
+Instalando dependencias...
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.17.1-1ubuntu0.18).
+nginx is already the newest version (1.14.0-0ubuntu1.11).
+python3 is already the newest version (3.6.7-1~18.04).
+python3-pip is already the newest version (9.0.1-2.3~ubuntu1.18.04.8).
+python3-venv is already the newest version (3.6.7-1~18.04).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Synchronizing state of nginx.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable nginx
+Clonando la aplicación...
+fatal: destination path 'devops-static-web' already exists and is not an empty directory.
+Configurando entorno virtual...
+Requirement already satisfied: certifi in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 1))
+Requirement already satisfied: click in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 2))
+Requirement already satisfied: Flask in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 3))
+Requirement already satisfied: Flask-SQLAlchemy in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 4))
+Requirement already satisfied: Flask-WTF in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 5))
+Requirement already satisfied: itsdangerous in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 6))
+Requirement already satisfied: Jinja2 in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 7))
+Requirement already satisfied: MarkupSafe in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 8))
+Requirement already satisfied: SQLAlchemy in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 9))
+Requirement already satisfied: Werkzeug in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 10))
+Requirement already satisfied: WTForms in ./venv/lib/python3.6/site-packages (from -r requirements.txt (line 11))
+Requirement already satisfied: importlib-metadata; python_version < "3.8" in ./venv/lib/python3.6/site-packages (from click->-r requirements.txt (line 2))
+Requirement already satisfied: greenlet!=0.4.17; python_version >= "3" and (platform_machine == "aarch64" or (platform_machine == "ppc64le" or (platform_machine == "x86_64" or (platform_machine == "amd64" or (platform_machine == "AMD64" or (platform_machine == "win32" or platform_machine == "WIN32")))))) in ./venv/lib/python3.6/site-packages (from SQLAlchemy->-r requirements.txt (line 9))
+Requirement already satisfied: dataclasses; python_version < "3.7" in ./venv/lib/python3.6/site-packages (from Werkzeug->-r requirements.txt (line 10))
+Requirement already satisfied: zipp>=0.5 in ./venv/lib/python3.6/site-packages (from importlib-metadata; python_version < "3.8"->click->-r requirements.txt (line 2))
+Requirement already satisfied: typing-extensions>=3.6.4; python_version < "3.8" in ./venv/lib/python3.6/site-packages (from importlib-metadata; python_version < "3.8"->click->-r requirements.txt (line 2))
+Requirement already satisfied: gunicorn in ./venv/lib/python3.6/site-packages
+Requirement already satisfied: importlib-metadata; python_version < "3.8" in ./venv/lib/python3.6/site-packages (from gunicorn)
+Requirement already satisfied: packaging in ./venv/lib/python3.6/site-packages (from gunicorn)
+Requirement already satisfied: zipp>=0.5 in ./venv/lib/python3.6/site-packages (from importlib-metadata; python_version < "3.8"->gunicorn)
+Requirement already satisfied: typing-extensions>=3.6.4; python_version < "3.8" in ./venv/lib/python3.6/site-packages (from importlib-metadata; python_version < "3.8"->gunicorn)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in ./venv/lib/python3.6/site-packages (from packaging->gunicorn)
+Iniciando Gunicorn...
+[2025-06-25 02:15:35 +0000] [23377] [INFO] Starting gunicorn 21.2.0
+[2025-06-25 02:15:35 +0000] [23377] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2025-06-25 02:15:35 +0000] [23377] [ERROR] Retrying in 1 second.
+[2025-06-25 02:15:36 +0000] [23377] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2025-06-25 02:15:36 +0000] [23377] [ERROR] Retrying in 1 second.
+[2025-06-25 02:15:38 +0000] [23377] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2025-06-25 02:15:38 +0000] [23377] [ERROR] Retrying in 1 second.
+Configurando Nginx...
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+Verificando servicios...
+✓ Nginx está activo
+✓ Gunicorn está corriendo
+✓ Puerto 8000 está en uso
+✓ Gunicorn responde correctamente
+=== Despliegue finalizado ===
+Revisá logs_despliegue.txt para detalles.
+La aplicación debería estar disponible en: http://10.0.2.15
+[2025-06-25 02:15:39 +0000] [23377] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2025-06-25 02:15:39 +0000] [23377] [ERROR] Retrying in 1 second.
+[2025-06-25 02:15:40 +0000] [23377] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2025-06-25 02:15:40 +0000] [23377] [ERROR] Retrying in 1 second.
+[2025-06-25 02:15:41 +0000] [23377] [ERROR] Can't connect to ('0.0.0.0', 8000)
